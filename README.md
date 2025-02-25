@@ -3,11 +3,5 @@ A cloud infrastructure which facilitates creation of zip-archives of recipes and
 
 # Project directory structure Explained !
 
-aws-recipe-infra/
-│── main.tf           # Main Terraform file (defines resources)
-│── variables.tf      # Defines input variables
-│── outputs.tf        # Defines output values
-│── provider.tf       # AWS provider configuration
-│── lambda/           # Lambda function code directory
-│   └── lambda_function.py  # Python script for zipping recipes
-│── terraform.tfvars  # Defines actual values for variables
+![image](https://github.com/user-attachments/assets/1427685f-3519-43c5-a81d-1580c84bfdc3)
+
