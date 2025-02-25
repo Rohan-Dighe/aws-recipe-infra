@@ -15,12 +15,14 @@ Terraform (Latest stable version)
 Cloud Provider CLI (e.g., AWS CLI, Azure CLI, GCP SDK)
 Access credentials for the cloud provider
 
-# Run aws configure and provide the Access Key Id and Secret Access Key and in my project i have used us-east-1 region.
+ Run aws configure and provide the Access Key Id and Secret Access Key and in my project i have used us-east-1 region.
 
 # Package the Lambda Code
 
 cd lambda/
+
 zip lambda_function.zip lambda_function.py
+
 mv lambda_function.zip ..
 
 # Initialize & Deploy with Terraform
