@@ -30,7 +30,7 @@ Deployment
 # overview
 This project uses Terraform to provision and manage cloud infrastructure efficiently. The configuration is designed to be modular, scalable, and easily maintainable.
 
-📌 Prerequisites
+ Prerequisites
 Before initializing the project, ensure you have the following installed:
 
 Terraform (Latest stable version)
