@@ -61,4 +61,15 @@ terraform plan
 # Deploy infrastructure
 terraform apply -auto-approve
 
+# Once project deployed through terraform on AWS cloud use the below steps to access the zip file
+
+Verify CloudFront HTTPS Access
+Step 1: Get the CloudFront Distribution URL
+1.	Go to AWS Console → CloudFront
+2.	Find your CloudFront distribution
+3.	Copy the Distribution Domain Name (e.g., d123example.cloudfront.net)
+
+   For example : https://d123example.cloudfront.net/testfile.zip
+
+
 
