@@ -200,8 +200,64 @@ resource "aws_iam_policy" "lambda_logging" {
   })
 }
 
-# ✅ Attach Logging Policy to Lambda Execution Role
+#  Attach Logging Policy to Lambda Execution Role
 resource "aws_iam_role_policy_attachment" "lambda_logging_attachment" {
   policy_arn = aws_iam_policy.lambda_logging.arn
   role       = aws_iam_role.lambda_exec.name
 }
+
+# Enabled S3 Lifecycle Rules for both S3 buckets
+resource "aws_s3_bucket_lifecycle_configuration" "recipe_storage_lifecycle" {
+  bucket = aws_s3_bucket.recipe_storage.id
+
+  rule {
+    id     = "MoveToGlacier"
+    status = "Enabled"
+
+    transition {
+      days          = 30
+      storage_class = "GLACIER"
+    }
+  }
+
+  rule {
+    id     = "ExpireOldFiles"
+    status = "Enabled"
+
+    expiration {
+      days = 180
+    }
+  }
+
+  rule {
+    id     = "AbortIncompleteUploads"
+    status = "Enabled"
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "recipe_archives_lifecycle" {
+  bucket = aws_s3_bucket.recipe_archives.id
+
+  rule {
+    id     = "ExpireArchivedFiles"
+    status = "Enabled"
+
+    expiration {
+      days = 365  # Delete files older than 1 year
+    }
+  }
+
+  rule {
+    id     = "AbortIncompleteUploadsArchives"
+    status = "Enabled"
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
