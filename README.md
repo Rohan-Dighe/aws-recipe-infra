@@ -20,7 +20,7 @@ Uses an Origin Access Identity (OAI) to restrict direct S3 access.
 4. IAM Roles & Policies (Access Control)
 IAM Role for Lambda to access S3.
 IAM Policies to enforce security best practices.
-Deployment
+
 
 
 # Project directory structure Explained !
