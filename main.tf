@@ -67,7 +67,7 @@ resource "aws_iam_role" "lambda_exec" {
   })
 }
 
-# Lambda Function
+# Lambda Function creates an AWS Lambda function named zip_receipe.
 resource "aws_lambda_function" "zip_files" {
   function_name = "zip_recipes"
   role          = aws_iam_role.lambda_exec.arn
